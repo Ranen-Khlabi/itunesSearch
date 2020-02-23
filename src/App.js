@@ -1,48 +1,46 @@
 import React from 'react';
+import SearchItems from './Components/SearchItems';
 import axios from 'axios';
-import List from './Components./List';
+import List from './Components/List';
+// import Temp from './Components./Temp';
 import './App.css';
 
- 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      searchTerm: '',
+      search: [ ],
+      // weather: Temp
     };
-     // this.search = this.search.bind(this);
   }
-
-  search = () => {
+  
+  getAllPosts = () => {
+    console.log('getAllPosts');
     axios({
-      type: 'GET',
-      // dataType: 'jsonp',
-      url: 'https://itunes.apple.com/search?term=sia&entity=album'
+      method: 'get',
+      url: `https://itunes.apple.com/search?term=${this.searchTerm}&entity=album`
     })
-    .then(response =>{
-      console.log('Response: ', response);
-      console.log('Data: ', response.data);
-        this.setState({ result: response.data });
-    })
-    .catch(err => {
-      console.log('Error: ', err);
-    });
+      .then(res => {
+        console.log('RESPONSE: ', res);
+        console.log('DATA: ', res.data);
+        this.setState({ search: res.data.results });
+      })
+      .catch(err => {
+        console.log('ERROR: ', err);
+      });
   };
-
-  // List.propTypes = {
-  //   search: React.PropTypes.func
-  // };
-  // Item.propTypes = {
-  //   item: React.PropTypes.array
-  // }
 
   render() {
     console.log(this);
+    
     return (
-      <div className= "aplication">
-        <h1>itunes apple ...</h1>
-        <button onClick={() => this.getAllItem()}>Get Items</button>
-        <List items={this.state.items} />
+      <div className="application">
+        <h1 className="title">Itunes Page</h1>
+        <button className="button" onClick={() => this.getAllPosts()}>Search</button>
+        <SearchItems />
+        {/* <Temp weather={this.state.weather}/> */}
+        <List search={this.state.search} />
       </div>
     );
   }

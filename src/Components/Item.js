@@ -1,29 +1,23 @@
 import React from 'react';
 
+
 export default class Item extends React.Component {
+  render() {
+    return (
+      <div className="post-item">
+        <a className="link"  href={ this.props.post.collectionViewUrl} target="_blank">
+        <img className="image" src={this.props.post.artworkUrl100} /> 
+                                                  {this.props.post.collectionName} 
+        <p> {this.props.post.primaryGenreName}</p>
+        <p> {this.props.post.releaseDate}</p></a>
+        {/* <p> <img className="image" src={this.props.post.artworkUrl60} /> </p> */}
+        {/* releaseDate: "2014-07-04T07:00:00Z"
+            primaryGenreName: "Pop" */}
 
-    render(){
-        // function Item(props) {
-
-        //     let resultItems = props.item.map((result) => {
-        //       if (result.trackName.length > 40) {
-        //         result.trackName = result.trackName.slice(0, 40) + '...';
-        //       }
-        //       return (
-        //         <li key={result.trackId}>
-        //           <img src={result.artworkUrl60} />
-        //           <a href={result.trackViewUrl} target='_blank' rel='noopener noreferrer'>
-        //              {result.trackName}
-        //           </a>
-        //         </li>
-        //       );
-        //     });
-            return (
-              // <ul> {resultItems} </ul>
-              <div className="result-item">
-                <p>title: {this.props.result.title}</p>
-                <p>body: {this.props.result.body}</p>
-              </div>
-            );
-          }
-    }
+        {/* <p>collectionName: {this.props.post.collectionName}</p> */}
+        {/* <a href={this.props.post.collectionViewUrl}>{this.props.post.collectionName} </a> */}
+        {/* <p>collectionViewUrl: {this.props.post.collectionViewUrl}</p> */}
+      </div>
+    );
+  }
+}  

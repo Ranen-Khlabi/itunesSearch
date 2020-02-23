@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
+
 export default class CreateNewPost extends React.Component {
   constructor(props) {
     super(props);
@@ -25,18 +26,19 @@ export default class CreateNewPost extends React.Component {
       });
   };
 
-  handleChangeInput_1 = e => {
+  handleChangeInput = e => {
     this.setState({ body: e.target.value });
   };
   render() {
     return (
       <div className="new-post">
-        <h1>Search item</h1>
-        <input
+        <input className="input"
           type="text"
-          onChange={event => this.handleChangeInput_1(event)}
+          size="60"
+          placeholder="⌕"
+          onChange={event => this.handleChangeInput(event)}
         />
-        <button onClick={() => this.getInput()}>Send</button>
+        <button className="button" onClick={() => this.getInput()}>Send</button>
       </div>
     );
   }
