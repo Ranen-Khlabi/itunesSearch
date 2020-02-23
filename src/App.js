@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
+import List from './Components./List';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+ 
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: []
+    };
+     // this.search = this.search.bind(this);
+  }
 
-export default App;
+  search = () => {
+    axios({
+      type: 'GET',
+      // dataType: 'jsonp',
+      url: 'https://itunes.apple.com/search?term=sia&entity=album'
+    })
+    .then(response =>{
+      console.log('Response: ', response);
+      console.log('Data: ', response.data);
+        this.setState({ result: response.data });
+    })
+    .catch(err => {
+      console.log('Error: ', err);
+    });
+  };
+
+  // List.propTypes = {
+  //   search: React.PropTypes.func
+  // };
+  // Item.propTypes = {
+  //   item: React.PropTypes.array
+  // }
+
+  render() {
+    console.log(this);
+    return (
+      <div className= "aplication">
+        <h1>itunes apple ...</h1>
+        <button onClick={() => this.getAllItem()}>Get Items</button>
+        <List items={this.state.items} />
+      </div>
+    );
+  }
+}

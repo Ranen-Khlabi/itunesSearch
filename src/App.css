@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Coiny|Shrikhand');
+body {
+    font-family: 'Coiny', sans-serif;
+    color: #fff;
+    background-color: #42a9e6;
+}
+.status p {
+    font-family: 'Coiny', sans-serif;
+    font-size: 1.8em;
+    text-transform: capitalize;
+}
+header {
+    margin-bottom: 30px;
+}
+h1 {
+    font-size: 5em;
+    font-family: 'Coiny', sans-serif;
+}
+.icon {
+    background-size: cover;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+}
