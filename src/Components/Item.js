@@ -9,9 +9,9 @@ export default class Item extends React.Component {
 
         <a className="link"  
             href={ this.props.post.collectionViewUrl} target="_blank">
-
         <img className="image" 
              src={this.props.post.artworkUrl100} /> 
+
                  {this.props.post.collectionName} 
 
         <p> {this.props.post.primaryGenreName}</p>
