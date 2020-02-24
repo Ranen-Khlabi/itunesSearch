@@ -10,10 +10,6 @@ export default class List extends React.Component {
     return (
       <div className="post-list">
         {allItem}
-       {/* {this.props.search.map((post,index) => {
-        //  console.log(post)
-        return <Item post={post} key={index}/>
-       })} */}
       </div>
     );
   } 
