@@ -28,7 +28,11 @@ Witing finishing my website..
 * Postman
 * VS code
 * JSX
-​
+
+## User Story
+
+1. The user can access to all feature in the application.
+
 ​
 ## Prerequisites
 ​
