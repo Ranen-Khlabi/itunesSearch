@@ -1,8 +1,8 @@
 # ![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) 
 
 # Simple React JS Project 
-### Itunes Search 
 
+### Itunes Search 
 
 ## Table of Contents
 * [Why this Repo](#why-this-repo)
@@ -64,4 +64,4 @@ Usually The Application Runs on **localhost:3000**
 ​
 ## Resources
 ​
-**ReactJS** : https://reactjs.org/ 
+**ReactJS** : https://reactjs.org/
