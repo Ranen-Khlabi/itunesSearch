@@ -1,30 +1,84 @@
 import React from 'react';
-// import SearchItems from './Components/SearchItems';
 import axios from 'axios';
-// import parser from 'xml-js';
 import List from './Components/List';
+import Favorites from "./Components/Favorites";
+import DisplyFav from './Components/DisplyFav';
 import { FaGithub, FaEnvelope} from "react-icons/fa";
-// import Temp from './Components./Temp';
 import './App.css';
-import Favorites from './Components/Favorites';
 
+
+//First Create React App
+//& add the states
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      favorites: [],
+      add: [],
       searchTerm: '',
-      search: []
+      search: [],
+      newItem: '',
+      filter: 'none',
     }
   }
 
+//........................................
+//.................    Favorite Function   .......................//
 
+
+  
+  addItem = (item) =>{
+    this.setState({
+        add:[...this.state.add, item] // ... copy the array 
+    })
+    console.log(this.state.add);
+  }
+  
+  clearFav = () =>{
+    // console.log("clicked");
+    if( this.state.filter === 'none'){
+      this.setState({ filter:'display' });
+   }
+   else{
+       this.setState({ filter:'none' });
+   }
+  //  this.preventDefault.removeAll()
+    // this.setState({
+    //   add:[] // clear the list
+    // })
+  }
+
+  addToFav = (album) => {
+    console.log(album)
+    console.log("fff")
+    this.setState({
+        add: [... this.state.add, album],
+    });
+    console.log(this.state.add[0])
+  }
+  
+  deleteItem = (event) =>{ // 
+    console.log("clicked");
+    console.log(event);
+    const add=[...this.state.add] // ... copy the array 
+    const index = add.indexOf(event); // use the index to delete one item
+    add.splice(index,1) // delete it
+  
+    this.setState({add}) 
+  }
+
+//........................................
+
+
+//Create function for search
   handleChange = (event) =>{
     event.preventDefault();
     console.log(event.target.value);
     this.setState({searchTerm: event.target.value})
     
   }
+
+//Add function for button when click search
+//& doesn't refresh the website
   Clicked=(event)=>{
     event.preventDefault()
     this.setState({
@@ -32,11 +86,12 @@ export default class App extends React.Component {
     })
     this.getAllPosts()
   }
+
+
+//Axios inside the function
   getAllPosts = () => {
-    
     // event.preventDefault()
-    console.log('getAllPosts');
-    //${this.stats.searchTerm}
+    // console.log('getAllPosts');
     axios({
       method: 'get',
       url: `https://itunes.apple.com/search?term=${this.state.searchTerm}}`
@@ -51,24 +106,40 @@ export default class App extends React.Component {
       });
   };
 
+
+
+ //........................................ 
+
   render() {
     console.log(this);
     
     return (
 
+//Create the main Div
       <div className="application">
 
         <body>
 
-          <h2>your Favorites</h2>
+{/*Add favorite button & Call Favorites component */}
+<button className="FavButton" onClick={this.clearFav} >Favorites</button>
+         <div className={`favorite-${this.state.filter}`}>
+          <DisplyFav Fav={this.state.add} />
+          </div>
+          <div >
+            <Favorites 
+             deleteItem={this.deleteItem} 
+             clearFav={this.clearFav} 
+             adding={this.state.add}/>
+          </div>
+          
 
-          <ul>
-            <Favorites favorites={this.state.favorites}
-                       favoriteClick={this.favoriteClick}
-                       removeAll={this.removeAll}/>
-          </ul>
+{/* Add title and paragraphs */}
+        <h1 className="title">Itunes Search</h1>
+        <p className="title2">You need listen to Music, Podcast, anything?</p>
+        <p className="title2">Let's search for it ...</p>
 
-        <h1 className="title">Itunes Page</h1>
+
+{/* add input search & button call the function ' Clicked() '  */}
         <form >
         <input className="input"
           type="text"
@@ -79,16 +150,20 @@ export default class App extends React.Component {
           <button className="button"  onClick={this.Clicked}>Search</button>
         </form>
 
+
+{/* Call List Component inside ul & Calling the state and axios */}
         <ul className='container'>
             <List 
               search={this.state.search} 
               favorites = {this.state.favorites}
               favoriteClick = {this.favoriteClick}
               getList= {() => this.getAllPosts()}
+              addToFav={this.addToFav}
             />
-          </ul>
+        </ul>
 
-        {/* <List search={this.state.search} /> */}
+
+{/* Add icon footer for Github and email */}
         <footer>
             <a href="https://github.com/Ranen-Khlabi" target= "_blank"><FaGithub/></a>
             <a href="Ranen-Alkhlabi@hotmail.com" target= "_blank"><FaEnvelope/></a>
