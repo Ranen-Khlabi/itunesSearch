@@ -10,6 +10,7 @@
 * [Technologies](#technologies)
 * [Prerequisites](#prerequisites)
 * [Resources](#resources)
+* [Future Work](#Future-Work)
 ​
 ## Why this Repo
 ​
@@ -20,7 +21,7 @@ This Project is a Simple ReactJS Project which demonstrates the following
 ​
 ## Live Application URL
 ​
-Witing finishing my website.. 
+### https://ranen-khlabi.github.io/itunes-Search/
 ​
 ## Technologies
 * React js
@@ -28,10 +29,17 @@ Witing finishing my website..
 * Postman
 * VS code
 * JSX
-
+​
+​
+## Wireframes
+* ![Wireframes](wireframes.png)
+* ![Wireframes](wireframes2.png)
 ## User Story
 
 1. The user can access to all feature in the application.
+2. The user can search through the search box for anything he wants to listin.
+3. The user can access the iTunes page of apple.
+4. The user can add to item to the favorites and delete it.
 
 ​
 ## Prerequisites
@@ -65,6 +73,11 @@ npm start
 ```
 ​
 Usually The Application Runs on **localhost:3000**
+
+## Future Work
+
+- Make localStorage.
+- Add User Sign In, and Sign Out.
 ​
 ## Resources
 ​
