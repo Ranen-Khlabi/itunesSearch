@@ -1,9 +1,12 @@
 import React from 'react';
 import axios from 'axios';
+// import ls from 'local-storage';
+// import {reactLocalStorage} from 'reactjs-localstorage';
 import List from './Components/List';
 import Favorites from "./Components/Favorites";
 import DisplyFav from './Components/DisplyFav';
 import { FaGithub, FaEnvelope} from "react-icons/fa";
+// import FondData from './Components/FondData'
 import './App.css';
 
 
@@ -49,7 +52,7 @@ export default class App extends React.Component {
 
   addToFav = (album) => {
     console.log(album)
-    console.log("fff")
+    // console.log("fff")
     this.setState({
         add: [... this.state.add, album],
     });
@@ -118,24 +121,32 @@ export default class App extends React.Component {
 //Create the main Div
       <div className="application">
 
+        {/* <FondData /> */}
+
         <body>
 
 {/*Add favorite button & Call Favorites component */}
 <button className="FavButton" onClick={this.clearFav} >Favorites</button>
+
          <div className={`favorite-${this.state.filter}`}>
+
+
           <DisplyFav Fav={this.state.add} />
           </div>
+
+          
           <div >
             <Favorites 
              deleteItem={this.deleteItem} 
              clearFav={this.clearFav} 
              adding={this.state.add}/>
           </div>
+
           
 
 {/* Add title and paragraphs */}
         <h1 className="title">Itunes Search</h1>
-        <p className="title2">You need listen to Music, Podcast, anything?</p>
+        <p className="title2">You need listen to anything?</p>
         <p className="title2">Let's search for it ...</p>
 
 

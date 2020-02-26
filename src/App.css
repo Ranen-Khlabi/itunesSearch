@@ -10,6 +10,12 @@ display: inline-block;
 display: none;
 }
 
+/* @media screen and (max-width: 415px){
+  .input{
+    width: 414px;
+    height: 736px;
+  } */
+
 .title{
   text-align: center;
   font-size: 60px;
@@ -49,6 +55,9 @@ footer, a{
   height: 46px;
   padding: 10px 10px;
   /* text-align: start; */
+  /* position: relative;
+  top: -200px;
+  right: 50px; */
 }
 .rate:not(:checked) > input {
   position:absolute;

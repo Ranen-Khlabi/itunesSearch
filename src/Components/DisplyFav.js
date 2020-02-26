@@ -14,9 +14,11 @@ export default class DisplyFav extends React.Component {
 
      //Call the map function
     return (
+      
       <div className="post-list">
        {FavAlbum}
       </div>
+      
     );
   } 
 }
