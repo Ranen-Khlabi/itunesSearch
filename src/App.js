@@ -69,6 +69,16 @@ export default class App extends React.Component {
     this.setState({add}) 
   }
 
+    // handleRemove = (event) =>{ // 
+    //   console.log("clicked");
+    //   console.log(event);
+    //   const add=[...this.state.add] // ... copy the array 
+    //   const index = add.indexOf(event); // use the index to delete one item
+    //   add.splice(index,1) // delete it
+    
+    //   this.setState({add}) 
+    // }
+
 //........................................
 
 
@@ -139,7 +149,9 @@ export default class App extends React.Component {
             <Favorites 
              deleteItem={this.deleteItem} 
              clearFav={this.clearFav} 
-             adding={this.state.add}/>
+             adding={this.state.add}
+            //  handleRemove={this.handleRemove}
+            />
           </div>
 
           

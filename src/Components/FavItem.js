@@ -1,20 +1,43 @@
 import React from 'react';
 
-//Second Create List Component
-export default class FavItem extends React.Component {
-  constructor(props){
-    super(props)
-  }
-  render() {
+export default class FaveItem extends React.Component {
+  // Remove = e => {
+  //   e.preventDefault();
+  //   console.log("click remove");
+  //   this.props.handleRemove();
+  // };
 
-     //Call the map function
+  render() {
     return (
-      <li>
-      <div >
+      <div>
+        <div className="favecards">
         {this.props.post}
-        {/* <button onClick={this.deleteItem}>X</button> */}
-      </div>
-      </li>
+        </div>
+        {/* <button onClick={this.handleRemove}>X</button> */}
+        </div>
     );
-  } 
+  }
 }
+
+
+
+
+
+
+// export default class FavItem extends React.Component {
+//   constructor(props){
+//     super(props)
+//   }
+//   render() {
+
+//      //Call the map function
+//     return (
+//       <li>
+//       <div >
+//         {this.props.post}
+//         {/* <button onClick={this.deleteItem}>X</button> */}
+//       </div>
+//       </li>
+//     );
+//   } 
+// }
